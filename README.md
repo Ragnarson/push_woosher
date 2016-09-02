@@ -26,6 +26,7 @@ You need to configure your access :
 PushWoosher.configure do |config|
   config.application_code = 'APPP-IDDD'
   config.api_token = 'the-api-token'
+  config.logger = Logger.new
 end
 ```
 

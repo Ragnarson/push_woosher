@@ -9,7 +9,11 @@ module PushWoosher
     def connection
       @connection = Faraday.new(url: "#{PROTOCOL}://#{BASE_HOST}") do |faraday|
         faraday.request :url_encoded             # form-encode POST params
-        faraday.response :logger                  # log requests to STDOUT
+
+        if PushWoosher.configuration.logger
+          faraday.response :logger, PushWoosher.configuration.logger
+        end
+
         faraday.adapter Faraday.default_adapter  # make requests with Net::HTTP
       end
     end

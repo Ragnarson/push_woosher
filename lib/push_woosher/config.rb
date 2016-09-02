@@ -2,6 +2,7 @@ module PushWoosher
   class Config
     attr_accessor :application_code
     attr_accessor :api_token
+    attr_accessor :logger
 
     def setup
       yield self
